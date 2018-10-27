@@ -12,9 +12,18 @@
       <td>{{ task.id }}</td>
       <td>{{ task.name}}</td>
       <td>
-        <button type="button" class="btn btn-default" (click)="onClick(task)">
-          <span class="glyphicon glyphicon-pencil"></span>
-        </button>
+        <div class="row">
+          <div class="col-md-2">
+            <button type="button" class="btn btn-default" (click)="selectTask(task)">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-danger" (click)="deleteTask(task.id)">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+          </div>
+        </div>
       </td>
     </tr>
   </tbody>

@@ -30,9 +30,16 @@ export class TaskListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(task) {
+  selectTask(task) {
     console.log(task);
     this.selectedTask = task;
+  }
+
+  deleteTask(id: number) {
+    const index = this.tasks.findIndex(item => item.id === id);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
   }
 
 }
