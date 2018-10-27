@@ -1,7 +1,2 @@
-<h1>{{ title}}</h1>
-<ul>
-  <li *ngFor="let t of tasks" (click)="onClick(t)">
-    {{ t.id }} - {{ t.name }}
-  </li>
-</ul>
-<task-edit [task]="selectedTask"></task-edit>
+<task-list></task-list>
+
