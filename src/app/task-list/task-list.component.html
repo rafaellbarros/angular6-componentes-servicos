@@ -13,6 +13,8 @@
         </tr>
       </thead>
       <tbody>
+        <!-- <template ngFor let-task [ngForOf]="tasks"></template> -->
+        <!-- <tr template="ngFor let task of tasks"> -->
         <tr *ngFor="let task of tasks">
           <td>{{ task.id }}</td>
           <td>{{ task.name}}</td>

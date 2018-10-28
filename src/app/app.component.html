@@ -1,5 +1,10 @@
+<br />
 <div class="container">
-  <div class="row"><alert type="danger" dismissOnTimeout="2000">Erro no sistema</alert></div>
+  <div class="row">
+    <alert *ngFor="let m of messages" [type]="m.type" dismissOnTimeout="4000">
+      {{m.message}}
+    </alert>
+  </div>
 </div>
 <router-outlet></router-outlet>
 
