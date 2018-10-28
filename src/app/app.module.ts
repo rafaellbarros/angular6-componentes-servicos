@@ -8,6 +8,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TaskService } from './task.service';
 import { TaskNewComponent } from './task-new/task-new.component';
+import { AlertModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { TaskNewComponent } from './task-new/task-new.component';
     TaskNewComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule
+    BrowserModule, FormsModule, AppRoutingModule, AlertModule.forRoot()
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]
