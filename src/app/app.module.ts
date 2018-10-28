@@ -5,6 +5,7 @@ import {FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TaskEditComponent } from './task/task-edit.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { TaskListComponent } from './task-list/task-list.component';
     TaskListComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
