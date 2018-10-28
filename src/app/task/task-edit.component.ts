@@ -1,5 +1,5 @@
 import { TaskService } from './../task.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from './task.model';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -9,10 +9,16 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./task.component.css']
 })
 
-export class TaskEditComponent {
+export class TaskEditComponent implements OnInit {
 
   task: Task;
-  constructor(private taskService: TaskService, private route: ActivatedRoute) {
+  constructor(private taskService: TaskService, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.getTaskId();
+  }
+
+  private getTaskId() {
     this.route.params.forEach((params: Params) => {
       const id = +params['id'];
       this.task = this.taskService.getTask(id);
@@ -21,5 +27,4 @@ export class TaskEditComponent {
       }
     });
   }
-
 }
