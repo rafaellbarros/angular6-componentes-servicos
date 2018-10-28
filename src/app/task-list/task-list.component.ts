@@ -1,6 +1,7 @@
 import { TaskService } from './../task.service';
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../task/task.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'task-list',
@@ -11,17 +12,15 @@ export class TaskListComponent implements OnInit {
 
   title = 'Minhas Tarefas';
   tasks: Task[];
-  selectedTask: Task;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private router: Router) { }
 
   ngOnInit() {
     this.tasks = this.taskService.getTasks();
   }
 
-  selectTask(task) {
-    console.log(task);
-    this.selectedTask = task;
+  public goToEdit(id: number) {
+    this.router.navigate(['tasks', id, 'edit']);
   }
 
   deleteTask(id: number) {

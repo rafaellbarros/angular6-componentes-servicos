@@ -1,7 +1,7 @@
 import { TaskService } from './../task.service';
 import { Component, OnInit } from '@angular/core';
 import { Task } from './task.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'task-edit',
@@ -12,7 +12,11 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class TaskEditComponent implements OnInit {
 
   task: Task;
-  constructor(private taskService: TaskService, private route: ActivatedRoute) { }
+  constructor(
+    private taskService: TaskService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.getTaskId();
@@ -26,5 +30,9 @@ export class TaskEditComponent implements OnInit {
         alert('Tarefa não exite');
       }
     });
+  }
+
+  public submit() {
+    this.router.navigate(['tasks', 'list']);
   }
 }
