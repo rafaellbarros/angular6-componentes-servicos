@@ -7,13 +7,15 @@ import { TaskEditComponent } from './task/task-edit.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TaskService } from './task.service';
+import { TaskNewComponent } from './task-new/task-new.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskEditComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskNewComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule
