@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { TaskService } from './../task.service';
+import { Component } from '@angular/core';
 import { Task } from './task.model';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'task-edit',
@@ -8,6 +10,16 @@ import { Task } from './task.model';
 })
 
 export class TaskEditComponent {
-  @Input()
+
   task: Task;
+  constructor(private taskService: TaskService, private route: ActivatedRoute) {
+    this.route.params.forEach((params: Params) => {
+      const id = +params['id'];
+      this.task = this.taskService.getTask(id);
+      if (!this.task) {
+        alert('Tarefa não exite');
+      }
+    });
+  }
+
 }

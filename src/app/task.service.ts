@@ -25,4 +25,9 @@ export class TaskService {
   getTasks(): Task[] {
     return TASKS;
   }
+
+  getTask(id: number): Task|null {
+    const array = this.getTasks().filter(item => item.id === id);
+      return array.length ? array[0] : null;
+  }
 }
