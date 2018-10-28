@@ -1,3 +1,4 @@
+import { MessageService } from './../message.service';
 import { TaskService } from './../task.service';
 import { Component, OnInit } from '@angular/core';
 import { Task } from './task.model';
@@ -15,7 +16,8 @@ export class TaskEditComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +35,10 @@ export class TaskEditComponent implements OnInit {
   }
 
   public submit() {
+    this.messageService.messages.push({
+      type: 'success',
+      message: 'Tarefa alterada com sucesso'
+    });
     this.router.navigate(['tasks', 'list']);
   }
 }

@@ -1,3 +1,4 @@
+import { MessageService } from './message.service';
 import { Injectable } from '@angular/core';
 import { Task } from './task/task.model';
 
@@ -20,7 +21,7 @@ const TASKS: Task[] = [
 })
 export class TaskService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   getTasks(): Task[] {
     return TASKS;
@@ -34,5 +35,20 @@ export class TaskService {
   createTask(task: Task) {
     task.id = this.getTasks().length + 1;
     this.getTasks().push(task);
+    this.messageService.messages.push({
+      type: 'success',
+      message: 'Tarefa incluida com sucesso'
+    });
+  }
+
+  deleteTask(id: number) {
+    const index = this.getTasks().findIndex(item => item.id === id);
+    if (index !== -1) {
+      this.getTasks().splice(index, 1);
+    }
+    this.messageService.messages.push({
+      type: 'success',
+      message: 'Tarefa excluida com sucesso'
+    });
   }
 }
